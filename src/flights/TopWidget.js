@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View, Image} from 'react-native';
+
 export default class TopWidget extends Component {
     render() {
         return (
@@ -17,12 +18,12 @@ const styles = {
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor:'orange'
+        backgroundColor: 'orange'
 
     },
     line: {
         height: 2,
-        width:300,
+        width: 300,
         backgroundColor: "white"
     },
     imageFlag: {

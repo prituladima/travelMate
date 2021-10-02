@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View, Image} from 'react-native';
+
 export default class TimeWidget extends Component {
     render() {
         return (
@@ -22,18 +23,18 @@ const styles = {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems:'center',
-        marginLeft:16,
-        marginRight:16
+        alignItems: 'center',
+        marginLeft: 16,
+        marginRight: 16
     },
-    middleContainer:{
-        alignItems:"stretch",
-        flexDirection:"column"
+    middleContainer: {
+        alignItems: "stretch",
+        flexDirection: "column"
     },
     finalPriceText: {},
-    lightText:{
-        fontSize:12,
-        color:'#878787'
+    lightText: {
+        fontSize: 12,
+        color: '#878787'
     },
     line: {
         height: 1,

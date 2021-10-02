@@ -2,11 +2,14 @@ import React, {Component} from "react";
 import {RecyclerListView, LayoutProvider, DataProvider} from "recyclerlistview";
 import {View, Dimensions, Text, Image} from "react-native";
 import FlightCard from "./FlightCard";
-import FlightData from "./FlightData";
+import FlightData from "./DataSource";
 import HotelCard from "./HotelCard";
 import TopWidget from "./TopWidget";
+
 let {height, width} = Dimensions.get('window');
-export default class FlightsPage extends Component {
+
+export default class MainComponent extends Component {
+
     constructor(args) {
         super(args);
         this.state = {
@@ -20,7 +23,7 @@ export default class FlightsPage extends Component {
             switch (type) {
                 case "HOTEL_ITEM":
                     dim.width = width;
-                    dim.height = 83;
+                    dim.height = 183;
                     break;
                 case "FL_ITEM":
                     dim.width = width;
@@ -60,7 +63,8 @@ export default class FlightsPage extends Component {
             <View style={styles.header}>
                 <Text style={styles.headerText}>Travel Mate</Text>
             </View>
-            <RecyclerListView rowRenderer={this._renderRow} dataProvider={this.state.dataProvider}
+            <RecyclerListView rowRenderer={this._renderRow}
+                              dataProvider={this.state.dataProvider}
                               layoutProvider={this._layoutProvider}/>
         </View>
     }
@@ -68,25 +72,24 @@ export default class FlightsPage extends Component {
 const styles = {
     container: {
         flex: 1,
-
     },
-    header:{
+    header: {
         height: 65,
-        backgroundColor:'orange',
-        alignItems:"center",
-        flexDirection:"row",
-        elevation:4
+        backgroundColor: 'orange',
+        alignItems: "center",
+        flexDirection: "row",
+        elevation: 4
     },
-    headerText:{
-        color:'white',
-        fontSize:18,
+    headerText: {
+        color: 'white',
+        fontSize: 18,
         marginLeft: 16,
-        paddingBottom:3
+        paddingBottom: 3
     },
-    backIcon:{
-        height:23,
-        width:23,
-        marginLeft:16
+    backIcon: {
+        height: 23,
+        width: 23,
+        marginLeft: 16
 
     }
 }
