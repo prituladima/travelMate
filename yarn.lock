@@ -3977,7 +3977,7 @@
   dependencies:
     "p-locate" "^4.1.0"
 
-"lodash.debounce@^4.0.8":
+"lodash.debounce@^4.0.8", "lodash.debounce@4.0.8":
   "integrity" "sha1-gteb/zCmfEAF/9XiUVMArZyk168="
   "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   "version" "4.0.8"
@@ -3987,7 +3987,7 @@
   "resolved" "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz"
   "version" "4.1.1"
 
-"lodash@^4.14.0", "lodash@^4.17.4", "lodash@^4.3.0", "lodash@^4.6.1", "lodash@4.17.4":
+"lodash@^4.14.0", "lodash@^4.17.4", "lodash@^4.3.0", "lodash@^4.6.1":
   "integrity" "sha1-eCA6TRwyiuHYbcpkYONptX9AVa4="
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz"
   "version" "4.17.4"
@@ -5273,7 +5273,7 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react-native@>=0.62.0-rc.0 <0.64.0", "react-native@0.62.3":
+"react-native@>= 0.30.0", "react-native@>=0.62.0-rc.0 <0.64.0", "react-native@0.62.3":
   "integrity" "sha512-b2/hDHDlO5Of2Zn1K5ZgvzOoUrvMEvlYU4miS9rcEBp5jK/9cRQn81HZ7NBmf4gzigGl8CxbSx1l10GUj1k8XQ=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.62.3.tgz"
   "version" "0.62.3"
@@ -5339,7 +5339,7 @@
     "global" "^4.3.0"
     "react-proxy" "^1.1.7"
 
-"react@^16.0.0-alpha.12", "react@^16.8.0 || ^17.0.0", "react@16.11.0":
+"react@^16.0.0-alpha.12", "react@^16.8.0 || ^17.0.0", "react@>= 15.2.1", "react@16.11.0":
   "integrity" "sha512-M5Y8yITaLmU0ynd0r1Yvfq98Rmll6q8AxaEe88c8e7LxO8fZ2cNgmFt0aGAS9wzf1Ao32NKXtCl+/tVVtkxq6g=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.11.0.tgz"
   "version" "16.11.0"
@@ -5378,13 +5378,14 @@
     "string_decoder" "~1.1.1"
     "util-deprecate" "~1.0.1"
 
-"recyclerlistview@^1.0.3":
-  "integrity" "sha1-4XO/jz8YjcDoObPBlXETo+9MOvs="
-  "resolved" "https://registry.npmjs.org/recyclerlistview/-/recyclerlistview-1.0.3.tgz"
-  "version" "1.0.3"
+"recyclerlistview@3.0.5":
+  "integrity" "sha512-JVHz13u520faEsbVqFrJOMuJjc4mJlOXODe5QdqAJHdl5/IpyYeo83uiHrpzxyLb8QtJ0889JMlDik+Z1Ed0QQ=="
+  "resolved" "https://registry.npmjs.org/recyclerlistview/-/recyclerlistview-3.0.5.tgz"
+  "version" "3.0.5"
   dependencies:
-    "lodash" "4.17.4"
+    "lodash.debounce" "4.0.8"
     "prop-types" "15.5.8"
+    "ts-object-utils" "0.0.5"
 
 "regenerate-unicode-properties@^9.0.0":
   "integrity" "sha512-3E12UeNSPfjrgwjkR81m5J7Aw/T55Tu7nUyZVQYCKEOs+2dkxEY+DpPtZzO4YruuiPb7NkYLVcyJC4+zCbk5pA=="
@@ -6256,6 +6257,11 @@
   "integrity" "sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM="
   "resolved" "https://registry.npmjs.org/trim-right/-/trim-right-1.0.1.tgz"
   "version" "1.0.1"
+
+"ts-object-utils@0.0.5":
+  "integrity" "sha1-lTYc3s1+UhZ8/F5jTHY0XpCiYHc="
+  "resolved" "https://registry.npmjs.org/ts-object-utils/-/ts-object-utils-0.0.5.tgz"
+  "version" "0.0.5"
 
 "tunnel-agent@^0.6.0":
   "integrity" "sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0="
