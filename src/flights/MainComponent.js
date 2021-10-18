@@ -21,25 +21,27 @@ export default class MainComponent extends Component {
             return this.state.dataProvider.getDataForIndex(i).type;
         }, (type, dim) => {
             switch (type) {
+                //The most frequent items first.
                 case "HOTEL_ITEM":
                     dim.width = width;
                     dim.height = 183;
-                    break;
-                case "FL_ITEM":
-                    dim.width = width;
-                    dim.height = 80;
                     break;
                 case "HEADER":
                     dim.width = width;
                     dim.height = 300;
                     break;
+
+                case "FL_ITEM":
+                    dim.width = width;
+                    dim.height = 80;
+                    break;
+
                 default:
                     dim.width = width;
                     dim.height = 0;
-
             }
         });
-        this._renderRow = this._renderRow.bind(this);
+        // this._renderRow = this._renderRow.bind(this); //WTF
     }
 
 
@@ -47,10 +49,10 @@ export default class MainComponent extends Component {
         switch (type) {
             case "HOTEL_ITEM":
                 return <HotelCard/>
-            case "FL_ITEM":
-                return <FlightCard data={data}/>;
             case "HEADER":
                 return <TopWidget data={data}/>;
+            case "FL_ITEM":
+                return <FlightCard data={data}/>;
             default:
                 return null;
 

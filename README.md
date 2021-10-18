@@ -3,8 +3,7 @@
 To run, clone then:
 
 ```
-npm install
-react-native run-android
+npm install && react-native run-android
 ```
 
 Note: Make sure you don't run JS in Dev mode, that will slow down the listview. Always test performance in release mode.
