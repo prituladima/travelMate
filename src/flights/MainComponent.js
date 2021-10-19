@@ -10,12 +10,16 @@ let {height, width} = Dimensions.get('window');
 
 export default class MainComponent extends Component {
 
+    pageSize : number = 20;
+    pointer : number;
+
     constructor(args) {
         super(args);
+        this.pointer = 0;
         this.state = {
             dataProvider: new DataProvider((r1, r2) => {
                 return r1 !== r2
-            }).cloneWithRows(FlightData)
+            }).cloneWithRows(FlightData.slice(0, Math.min(FlightData.length, (this.pointer++) * this.pageSize)))
         };
         this._layoutProvider = new LayoutProvider((i) => {
             return this.state.dataProvider.getDataForIndex(i).type;
@@ -60,6 +64,14 @@ export default class MainComponent extends Component {
 
     }
 
+    _onEndReached() {
+        this.setState({
+            dataProvider: new DataProvider((r1, r2) => {
+                return r1 !== r2
+            }).cloneWithRows(FlightData.slice(0, Math.min(FlightData.length, (this.pointer ++) * this.pageSize)))
+        });
+    }
+
     render() {
         return <View style={styles.container}>
             <View style={styles.header}>
@@ -67,9 +79,12 @@ export default class MainComponent extends Component {
             </View>
             <RecyclerListView rowRenderer={this._renderRow}
                               dataProvider={this.state.dataProvider}
-                              layoutProvider={this._layoutProvider}/>
+                              layoutProvider={this._layoutProvider}
+                              onEndReached={() => this._onEndReached()}  />
         </View>
     }
+
+
 }
 const styles = {
     container: {
