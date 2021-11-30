@@ -10,11 +10,12 @@ let {height, width} = Dimensions.get('window');
 
 export default class MainComponent extends Component {
 
-    pageSize : number = 20;
-    pointer : number;
+    pageSize: number = 20;
+    pointer: number;
 
     constructor(args) {
         super(args);
+        // this.ref = undefined;
         this.pointer = 0;
         this.state = {
             dataProvider: new DataProvider((r1, r2) => {
@@ -24,24 +25,26 @@ export default class MainComponent extends Component {
         this._layoutProvider = new LayoutProvider((i) => {
             return this.state.dataProvider.getDataForIndex(i).type;
         }, (type, dim) => {
+            dim.width = Dimensions.get('window').width;
             switch (type) {
+
                 //The most frequent items first.
                 case "HOTEL_ITEM":
-                    dim.width = width;
+
                     dim.height = 183;
                     break;
                 case "HEADER":
-                    dim.width = width;
+
                     dim.height = 300;
                     break;
 
                 case "FL_ITEM":
-                    dim.width = width;
+
                     dim.height = 80;
                     break;
 
                 default:
-                    dim.width = width;
+
                     dim.height = 0;
             }
         });
@@ -68,7 +71,7 @@ export default class MainComponent extends Component {
         this.setState({
             dataProvider: new DataProvider((r1, r2) => {
                 return r1 !== r2
-            }).cloneWithRows(FlightData.slice(0, Math.min(FlightData.length, (this.pointer ++) * this.pageSize)))
+            }).cloneWithRows(FlightData.slice(0, Math.min(FlightData.length, (this.pointer++) * this.pageSize)))
         });
     }
 
@@ -77,13 +80,20 @@ export default class MainComponent extends Component {
             <View style={styles.header}>
                 <Text style={styles.headerText}>Travel Mate</Text>
             </View>
-            <RecyclerListView rowRenderer={this._renderRow}
-                              dataProvider={this.state.dataProvider}
-                              layoutProvider={this._layoutProvider}
-                              onEndReached={() => this._onEndReached()}  />
+            <RecyclerListView
+                canChangeSize={true}
+                rowRenderer={this._renderRow}
+                dataProvider={this.state.dataProvider}
+                layoutProvider={this._layoutProvider}
+                onEndReached={() => this._onEndReached()}/>
         </View>
     }
 
+    //ref={this.onRef}
+    // private onRef = (event) => {
+    //     this.ref = event;
+    //     //this.ref?.forceUpdate();
+    // }
 
 }
 const styles = {
